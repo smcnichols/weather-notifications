@@ -7,6 +7,7 @@ After I have completed the MVP, I have a few extension in mind:
 * Based on the forecast, recommend a window of time for going for a walk/run in order to avoid the rain.
 * If I haven't gone for a walk or run yet in a given day and the forecast predicts rain, then the service will send me a text message reminder to get outside before the rain starts.
 * Add a way for other people to subscribe to this service.
+* Maybe to learn more about webscraping, I could scrape weather data from weather sites instead of using api?
 
 ## Done
 * Set up github repo.
@@ -20,11 +21,12 @@ After I have completed the MVP, I have a few extension in mind:
 * Add Twilio text messaging to my Google Cloud Function. The way the function works now is that it will check if the incoming request that triggered the function has a message in it. If so, it text messages that message to me. Otherwise, it sends "Hello World!"
 * Add a test job to Google Cloud Scheduler that sends HTTP request to my Google Cloud Function. Right now the test job sends a POST request with a body that contains the message "Goodnight, Sally!" and is scheduled to trigger every night at 10:45pm. This way my function will text message me 15 mins before my bed time each night :)
 * In target function, temporarily force parsing incoming HTTP request to JSON because Google Cloud Scheduler does not allow you to specify the mimetype in your HTTP request. I had to do this in order to get my test job that sends a goodnight message working.
+* Sign up for [Dark Sky weather api](https://darksky.net/).
 
 ## TODO
-* Find good weather api to use.
 * Make HTTP request parsing more robust in Google Cloud Function instead of just forcing json parsing.
 * Schedule weather reporting job to text message me in the mornings.
 * Find a way to automatically deploy my Google Cloud Function based on version control trigger. This way whenever I push a new change to github, I don't have to manually go in and deploy the new code for my function.
 * Find good ways to test in python (and in general for this project).
 * Find out if there is a way to programatically create a job for Google Cloud Scheduler. This way I could add my jobs to version control and keep everything handy in one place. That helps me keep track of all the parts of the project, and also helps make things more replicable.
+* python virtual env for local testing
