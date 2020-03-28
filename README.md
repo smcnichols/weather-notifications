@@ -22,6 +22,7 @@ After I have completed the MVP, I have a few extension in mind:
 * Add a test job to Google Cloud Scheduler that sends HTTP request to my Google Cloud Function. Right now the test job sends a POST request with a body that contains the message "Goodnight, Sally!" and is scheduled to trigger every night at 10:45pm. This way my function will text message me 15 mins before my bed time each night :)
 * In target function, temporarily force parsing incoming HTTP request to JSON because Google Cloud Scheduler does not allow you to specify the mimetype in your HTTP request. I had to do this in order to get my test job that sends a goodnight message working.
 * Sign up for [Dark Sky weather api](https://darksky.net/).
+* Write function to make Dark Sky request.
 
 ## TODO
 * Make HTTP request parsing more robust in Google Cloud Function instead of just forcing json parsing.
@@ -30,3 +31,5 @@ After I have completed the MVP, I have a few extension in mind:
 * Find good ways to test in python (and in general for this project).
 * Find out if there is a way to programatically create a job for Google Cloud Scheduler. This way I could add my jobs to version control and keep everything handy in one place. That helps me keep track of all the parts of the project, and also helps make things more replicable.
 * python virtual env for local testing
+* Make local config file with secret keys for easy local testing. This config file will be in gitignore.
+* Programatically get latitude and longitude for a location
