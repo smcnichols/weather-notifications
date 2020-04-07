@@ -24,7 +24,7 @@ After I have completed the MVP, I have a few extension in mind:
 * Sign up for [Dark Sky weather api](https://darksky.net/).
 * Write function to make Dark Sky request.
 * Make local config file with secret keys for easy local testing. This config file is in gitignore.
-
+* Update target function to send weather notification and remove the 'hello world' code that was used for testing Google Cloud platform.
 
 ## TODO
 * Make HTTP request parsing more robust in Google Cloud Function instead of just forcing json parsing.

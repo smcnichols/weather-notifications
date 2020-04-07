@@ -1,21 +1,17 @@
 from twilio.rest import Client
 import os
+import weather
 
-def hello_world(request):
-    """Responds to any HTTP request.
-    Args:
-        request (flask.Request): HTTP request object.
-    Returns:
-        The response text or any set of values that can be turned into a
-        Response object using
-        `make_response <http://flask.pocoo.org/docs/1.0/api/#flask.Flask.make_response>`.
-    """
-    request_json = request.get_json(force=True)
-    message = f'Hello World!'
-    if request.args and 'message' in request.args:
-        message = request.args.get('message')
-    elif request_json and 'message' in request_json:
-        message = request_json['message']
+def weather_reminder():
+    # chicago latitude and longitude, hardcoded for now
+    latitude = '41.8781'
+    longitude = '-87.6298'
+    json_obj = weather.make_weather_request(latitude, longitude)
+    rain_probs = weather.covert(json_obj)
+    if (weather.is_rain(rain_probs)):
+        message = "Today's forecast predicts a chance of rain! Make sure to bring an umbrella."
+    else:
+        message = "Today's forecast is all clear!"
 
     account_sid = os.getenv('TWILIO_ACCOUNT_SID')
     auth_token = os.getenv('TWILIO_AUTH_TOKEN')
