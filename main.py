@@ -2,7 +2,7 @@ from twilio.rest import Client
 import os
 import weather
 
-def weather_reminder():
+def weather_reminder(req):
     # chicago latitude and longitude, hardcoded for now
     latitude = '41.8781'
     longitude = '-87.6298'
